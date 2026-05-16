@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan — M. Saman Subhani & Firdha Ariyanti</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ── CSS Variables ─────────────────────────────────────── */
+:root {
+  --sage:        #7CB99A;
+  --sage-light:  #A8D5BF;
+  --sage-pale:   #D6EFE4;
+  --sage-deep:   #4E8D72;
+  --mint:        #C8EAD9;
+  --ivory:       #FAF6EF;
+  --cream:       #F2EBD9;
+  --gold:        #C5A55A;
+  --gold-light:  #E4C87A;
+  --gold-pale:   #F8EDD0;
+  --teal:        #2D7D62;
+  --dark:        #1C3D30;
+  --text:        #2C4A3A;
+  --text-light:  #5A7A6A;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ivory);
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── Mozaik SVG Patterns ───────────────────────────────── */
+.mosaic-bg {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  opacity: 0.06;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%234E8D72' stroke-width='1'%3E%3Cpolygon points='60,10 85,35 85,85 60,110 35,85 35,35' /%3E%3Cpolygon points='60,25 75,40 75,80 60,95 45,80 45,40' /%3E%3Cline x1='60' y1='10' x2='60' y2='25'/%3E%3Cline x1='85' y1='35' x2='75' y2='40'/%3E%3Cline x1='85' y1='85' x2='75' y2='80'/%3E%3Cline x1='60' y1='110' x2='60' y2='95'/%3E%3Cline x1='35' y1='85' x2='45' y2='80'/%3E%3Cline x1='35' y1='35' x2='45' y2='40'/%3E%3Ccircle cx='60' cy='60' r='8' /%3E%3C/g%3E%3C/svg%3E");
+  background-size: 120px 120px;
+}
+
+/* ── Wrapper ───────────────────────────────────────────── */
+.invitation {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 0 60px;
+}
+
+/* ════════════════════════════════════════════════════════
+   HEADER — Bismillah + Girih border
+═══════════════════════════════════════════════════════ */
+.header {
+  position: relative;
+  background: linear-gradient(170deg, var(--teal) 0%, var(--sage-deep) 50%, var(--dark) 100%);
+  color: white;
+  text-align: center;
+  padding: 60px 40px 80px;
+  overflow: hidden;
+}
+
+/* Girih tile overlay */
+.header::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.08)' stroke-width='1'%3E%3Crect x='5' y='5' width='70' height='70' rx='2'/%3E%3Cpolygon points='40,5 75,20 75,60 40,75 5,60 5,20'/%3E%3Cpolygon points='40,18 62,28 62,52 40,62 18,52 18,28'/%3E%3Cline x1='40' y1='5' x2='40' y2='18'/%3E%3Cline x1='75' y1='20' x2='62' y2='28'/%3E%3Cline x1='75' y1='60' x2='62' y2='52'/%3E%3Cline x1='40' y1='75' x2='40' y2='62'/%3E%3Cline x1='5' y1='60' x2='18' y2='52'/%3E%3Cline x1='5' y1='20' x2='18' y2='28'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+/* Corner ornaments */
+.corner { position: absolute; width: 90px; height: 90px; opacity: 0.35; }
+.corner-tl { top: 0; left: 0; }
+.corner-tr { top: 0; right: 0; transform: scaleX(-1); }
+.corner-bl { bottom: 0; left: 0; transform: scaleY(-1); }
+.corner-br { bottom: 0; right: 0; transform: scale(-1, -1); }
+
+.bismillah {
+  font-family: 'Amiri', serif;
+  font-size: clamp(28px, 6vw, 48px);
+  letter-spacing: 3px;
+  color: var(--gold-light);
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  margin-bottom: 20px;
+  animation: fadeDown 1.2s ease forwards;
+}
+
+.undangan-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--mint);
+  margin-bottom: 8px;
+  animation: fadeDown 1.2s 0.2s ease both;
+}
+
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(13px, 3vw, 17px);
+  font-weight: 400;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.75);
+  margin-top: 4px;
+  animation: fadeDown 1.2s 0.4s ease both;
+}
+
+/* ── Wavy bottom edge ──────────────────────────────────── */
+.header-wave {
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 50px;
+}
+
+/* ════════════════════════════════════════════════════════
+   MEDALLION — Names
+═══════════════════════════════════════════════════════ */
+.medallion-section {
+  position: relative;
+  margin-top: -30px;
+  padding: 0 30px 40px;
+  text-align: center;
+}
+
+.medallion {
+  display: inline-block;
+  position: relative;
+  background: var(--ivory);
+  border-radius: 50%;
+  width: 160px; height: 160px;
+  line-height: 1;
+  box-shadow:
+    0 0 0 8px var(--sage-pale),
+    0 0 0 16px var(--sage-light),
+    0 0 0 20px var(--sage-pale),
+    0 20px 60px rgba(78,141,114,0.3);
+  margin: 30px auto 40px;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  animation: scaleIn 1.4s 0.6s cubic-bezier(.34,1.56,.64,1) both;
+}
+
+.medallion-inner-svg {
+  position: absolute; inset: -4px;
+  animation: rotateSlow 60s linear infinite;
+}
+
+.medallion-text {
+  font-family: 'Amiri', serif;
+  font-size: 22px;
+  color: var(--gold);
+  line-height: 1.3;
+}
+
+.names-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  animation: fadeUp 1.2s 0.8s ease both;
+}
+
+.name-block { text-align: center; }
+
+.name-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 18px;
+  color: var(--teal);
+  margin-bottom: 6px;
+  direction: rtl;
+}
+
+.name-main {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(26px, 5vw, 38px);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.1;
+}
+
+.name-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.ampersand-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-top: 10px;
+}
+
+.ampersand-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--sage), transparent);
+}
+
+.ampersand-sym {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-style: italic;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.parents-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 580px;
+  margin: 32px auto 0;
+  animation: fadeUp 1.2s 1s ease both;
+}
+
+.parent-card {
+  background: linear-gradient(135deg, var(--sage-pale), var(--cream));
+  border: 1px solid var(--sage-light);
+  border-radius: 12px;
+  padding: 18px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.parent-card::before {
+  content: '';
+  position: absolute;
+  top: -20px; right: -20px;
+  width: 80px; height: 80px;
+  background: var(--sage-light);
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.parent-gender {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--teal);
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.parent-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: var(--dark);
+  line-height: 1.4;
+}
+
+.parent-title {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* ════════════════════════════════════════════════════════
+   DIVIDER — Persian Arabesque
+═══════════════════════════════════════════════════════ */
+.arabesque-divider {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 10px 30px;
+  margin: 10px 0;
+}
+.ara-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--sage), transparent);
+}
+.ara-center {
+  padding: 0 16px;
+  color: var(--gold);
+  font-size: 24px;
+  line-height: 1;
+}
+
+/* ════════════════════════════════════════════════════════
+   AKAD & RESEPSI CARDS
+═══════════════════════════════════════════════════════ */
+.events-section {
+  padding: 20px 24px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+@media (max-width: 520px) {
+  .events-section { grid-template-columns: 1fr; }
+}
+
+.event-card {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(78,141,114,0.12), 0 2px 8px rgba(78,141,114,0.08);
+  animation: fadeUp 1s ease both;
+}
+
+.event-card:nth-child(2) { animation-delay: 0.2s; }
+
+.event-header {
+  background: linear-gradient(135deg, var(--teal), var(--sage-deep));
+  padding: 20px 24px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.event-header::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='0.8'%3E%3Cpolygon points='25,3 47,14 47,36 25,47 3,36 3,14'/%3E%3Cpolygon points='25,10 40,18 40,32 25,40 10,32 10,18'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 50px 50px;
+}
+
+.event-icon {
+  font-size: 28px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.event-type {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--mint);
+  position: relative;
+}
+
+.event-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: white;
+  margin-top: 4px;
+  position: relative;
+}
+
+.event-body {
+  padding: 20px 24px 24px;
+}
+
+.event-detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.event-detail:last-child { margin-bottom: 0; }
+
+.detail-icon {
+  width: 32px; height: 32px;
+  background: var(--sage-pale);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  color: var(--teal);
+}
+
+.detail-text { flex: 1; }
+
+.detail-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 2px;
+}
+
+.detail-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: var(--dark);
+  line-height: 1.3;
+}
+
+.detail-note {
+  font-size: 11px;
+  color: var(--text-light);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* ════════════════════════════════════════════════════════
+   QUOTE SECTION — Ayat Quran
+═══════════════════════════════════════════════════════ */
+.quran-section {
+  margin: 10px 24px 40px;
+  background: linear-gradient(135deg, var(--dark) 0%, var(--teal) 100%);
+  border-radius: 20px;
+  padding: 48px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  max-width: 672px;
+  margin-left: auto; margin-right: auto;
+}
+
+.quran-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.05)' stroke-width='1'%3E%3Cpolygon points='50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5'/%3E%3Cpolygon points='50,15 85,32.5 85,67.5 50,85 15,67.5 15,32.5'/%3E%3Ccircle cx='50' cy='50' r='15'/%3E%3Cline x1='50' y1='5' x2='50' y2='15'/%3E%3Cline x1='95' y1='27.5' x2='85' y2='32.5'/%3E%3Cline x1='95' y1='72.5' x2='85' y2='67.5'/%3E%3Cline x1='50' y1='95' x2='50' y2='85'/%3E%3Cline x1='5' y1='72.5' x2='15' y2='67.5'/%3E%3Cline x1='5' y1='27.5' x2='15' y2='32.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  pointer-events: none;
+}
+
+/* Decorative rosette top */
+.quran-rosette {
+  font-size: 36px;
+  color: var(--gold-light);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.quran-arabic {
+  font-family: 'Amiri', serif;
+  font-size: clamp(20px, 4vw, 28px);
+  color: var(--gold-light);
+  line-height: 1.9;
+  direction: rtl;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.quran-translation {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.8;
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.quran-source {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-top: 16px;
+  position: relative;
+}
+
+/* ════════════════════════════════════════════════════════
+   COUNTDOWN
+═══════════════════════════════════════════════════════ */
+.countdown-section {
+  padding: 20px 24px 40px;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.countdown-label {
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.countdown-grid {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.count-block {
+  background: white;
+  border: 2px solid var(--sage-light);
+  border-radius: 16px;
+  width: 88px;
+  padding: 20px 12px 14px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(78,141,114,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.count-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(78,141,114,0.2);
+}
+
+.count-block::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(to right, var(--sage), var(--teal));
+  border-radius: 14px 14px 0 0;
+}
+
+.count-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1;
+}
+
+.count-unit {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-top: 8px;
+}
+
+/* ════════════════════════════════════════════════════════
+   GALLERY STRIP
+═══════════════════════════════════════════════════════ */
+.pattern-strip {
+  height: 60px;
+  background: linear-gradient(135deg, var(--sage-pale) 25%, var(--mint) 50%, var(--sage-pale) 75%);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%237CB99A' stroke-width='0.8' opacity='0.5'%3E%3Cpolygon points='30,3 57,18 57,42 30,57 3,42 3,18'/%3E%3Cpolygon points='30,12 48,22 48,38 30,48 12,38 12,22'/%3E%3Ccircle cx='30' cy='30' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  margin: 10px 0;
+}
+
+/* ════════════════════════════════════════════════════════
+   LOCATION MAP CARD
+═══════════════════════════════════════════════════════ */
+.location-section {
+  padding: 0 24px 40px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.location-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(78,141,114,0.12);
+}
+
+.map-placeholder {
+  height: 160px;
+  background: linear-gradient(160deg, var(--sage-pale), var(--mint));
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%237CB99A' stroke-width='0.5' opacity='0.4'%3E%3Crect x='2' y='2' width='36' height='36'/%3E%3Cline x1='20' y1='2' x2='20' y2='38'/%3E%3Cline x1='2' y1='20' x2='38' y2='20'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 40px 40px;
+}
+
+.map-pin { font-size: 40px; position: relative; }
+.map-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: var(--teal);
+  position: relative;
+}
+
+.location-body { padding: 24px 28px; }
+
+.location-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.location-address {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--teal), var(--sage-deep));
+  color: white;
+  border-radius: 50px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', serif;
+  transition: opacity 0.2s;
+}
+
+.map-btn:hover { opacity: 0.85; }
+
+/* ════════════════════════════════════════════════════════
+   RSVP / UCAPAN
+═══════════════════════════════════════════════════════ */
+.rsvp-section {
+  padding: 0 24px 40px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.rsvp-card {
+  background: linear-gradient(135deg, var(--sage-pale), var(--cream));
+  border: 1px solid var(--sage-light);
+  border-radius: 20px;
+  padding: 36px 32px;
+  text-align: center;
+}
+
+.section-eyebrow {
+  font-size: 11px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(22px, 4vw, 30px);
+  color: var(--dark);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.section-body {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.9;
+  max-width: 420px;
+  margin: 0 auto 24px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--teal), var(--sage-deep));
+  color: white;
+  border-radius: 50px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  box-shadow: 0 8px 24px rgba(45,125,98,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(45,125,98,0.4);
+}
+
+/* ════════════════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════════════ */
+.footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 48px 30px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='rgba(124,185,154,0.1)' stroke-width='1'%3E%3Cpolygon points='40,5 75,22.5 75,57.5 40,75 5,57.5 5,22.5'/%3E%3Cpolygon points='40,18 62,30 62,50 40,62 18,50 18,30'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+.footer-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 26px;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.footer-couple {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-style: italic;
+  color: var(--sage-light);
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.footer-note {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 1px;
+  position: relative;
+}
+
+/* ════════════════════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════════════════ */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes floatUp {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.medallion { animation: scaleIn 1.4s 0.6s cubic-bezier(.34,1.56,.64,1) both, floatUp 5s 2s ease-in-out infinite; }
+
+/* Scroll reveal */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+[data-reveal].visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-reveal="delay-1"] { transition-delay: 0.1s; }
+[data-reveal="delay-2"] { transition-delay: 0.2s; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--ivory); }
+::-webkit-scrollbar-thumb { background: var(--sage); border-radius: 3px; }
+
+</style>
+</head>
+<body>
+
+<!-- Mozaik background -->
+<div class="mosaic-bg"></div>
+
+<div class="invitation">
+
+  <!-- ════ HEADER ════ -->
+  <header class="header">
+    <!-- Corner SVG ornaments -->
+    <svg class="corner corner-tl" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 L90,0 L90,10 Q50,10 10,50 L0,90 Z" fill="rgba(197,165,90,0.15)"/>
+      <path d="M0,0 L60,0 Q30,0 0,30 Z" fill="rgba(197,165,90,0.2)"/>
+      <circle cx="15" cy="15" r="8" fill="none" stroke="rgba(197,165,90,0.5)" stroke-width="1"/>
+      <circle cx="15" cy="15" r="4" fill="rgba(197,165,90,0.3)"/>
+      <line x1="15" y1="7" x2="15" y2="0" stroke="rgba(197,165,90,0.4)" stroke-width="1"/>
+      <line x1="23" y1="15" x2="30" y2="15" stroke="rgba(197,165,90,0.4)" stroke-width="1"/>
+      <line x1="15" y1="23" x2="15" y2="30" stroke="rgba(197,165,90,0.4)" stroke-width="1"/>
+      <line x1="7"  y1="15" x2="0"  y2="15" stroke="rgba(197,165,90,0.4)" stroke-width="1"/>
+    </svg>
+    <svg class="corner corner-tr" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 L90,0 L90,10 Q50,10 10,50 L0,90 Z" fill="rgba(197,165,90,0.15)"/>
+      <path d="M0,0 L60,0 Q30,0 0,30 Z" fill="rgba(197,165,90,0.2)"/>
+      <circle cx="15" cy="15" r="8" fill="none" stroke="rgba(197,165,90,0.5)" stroke-width="1"/>
+      <circle cx="15" cy="15" r="4" fill="rgba(197,165,90,0.3)"/>
+    </svg>
+    <svg class="corner corner-bl" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 L90,0 L90,10 Q50,10 10,50 L0,90 Z" fill="rgba(197,165,90,0.15)"/>
+    </svg>
+    <svg class="corner corner-br" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 L90,0 L90,10 Q50,10 10,50 L0,90 Z" fill="rgba(197,165,90,0.15)"/>
+    </svg>
+
+    <div class="bismillah">بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ</div>
+    <div class="undangan-label">— Undangan Pernikahan —</div>
+    <div class="header-title">Dengan penuh rasa syukur & kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i</div>
+
+    <svg class="header-wave" viewBox="0 0 720 50" preserveAspectRatio="none">
+      <path d="M0,50 L0,25 Q90,0 180,20 Q270,40 360,18 Q450,0 540,22 Q630,42 720,20 L720,50 Z" fill="#FAF6EF"/>
+    </svg>
+  </header>
+
+  <!-- ════ MEDALLION + NAMES ════ -->
+  <section class="medallion-section">
+
+    <div class="medallion">
+      <svg class="medallion-inner-svg" viewBox="0 0 168 168" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="84" cy="84" r="80" stroke="#A8D5BF" stroke-width="1" stroke-dasharray="4 3"/>
+        <polygon points="84,4 156,44 156,124 84,164 12,124 12,44"
+          fill="none" stroke="#C5A55A" stroke-width="1.2" opacity="0.6"/>
+        <polygon points="84,20 140,52 140,116 84,148 28,116 28,52"
+          fill="none" stroke="#7CB99A" stroke-width="0.8" opacity="0.5"/>
+        <circle cx="84" cy="4"   r="3" fill="#C5A55A" opacity="0.5"/>
+        <circle cx="156" cy="44" r="3" fill="#C5A55A" opacity="0.5"/>
+        <circle cx="156" cy="124" r="3" fill="#C5A55A" opacity="0.5"/>
+        <circle cx="84" cy="164" r="3" fill="#C5A55A" opacity="0.5"/>
+        <circle cx="12" cy="124" r="3" fill="#C5A55A" opacity="0.5"/>
+        <circle cx="12" cy="44"  r="3" fill="#C5A55A" opacity="0.5"/>
+      </svg>
+      <div class="medallion-text">
+        <div style="font-size:13px;letter-spacing:3px;color:var(--teal);margin-bottom:4px;">بِالتَّوْفِيق</div>
+        ♡
+      </div>
+    </div>
+
+    <div class="names-row">
+      <div class="name-block">
+        <div class="name-arabic">سامان صبحاني</div>
+        <div class="name-main">M. Saman<br>Subhani</div>
+        <div class="name-sub">Putra dari</div>
+      </div>
+      <div class="ampersand-divider">
+        <div class="ampersand-line"></div>
+        <div class="ampersand-sym">&amp;</div>
+        <div class="ampersand-line"></div>
+      </div>
+      <div class="name-block">
+        <div class="name-arabic">فردا أرييانتي</div>
+        <div class="name-main">Firdha<br>Ariyanti</div>
+        <div class="name-sub">Putri dari</div>
+      </div>
+    </div>
+
+    <div class="parents-row" data-reveal>
+      <div class="parent-card">
+        <div class="parent-gender">♂ Mempelai Pria</div>
+        <div class="parent-name">Bapak _____________<br>& Ibu _____________</div>
+        <div class="parent-title">Orang Tua Mempelai Pria</div>
+      </div>
+      <div class="parent-card">
+        <div class="parent-gender">♀ Mempelai Wanita</div>
+        <div class="parent-name">Bapak _____________<br>& Ibu _____________</div>
+        <div class="parent-title">Orang Tua Mempelai Wanita</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="arabesque-divider">
+    <div class="ara-line"></div>
+    <div class="ara-center">❧ ✦ ❧</div>
+    <div class="ara-line"></div>
+  </div>
+
+  <!-- ════ EVENTS ════ -->
+  <section class="events-section">
+
+    <!-- Akad Nikah -->
+    <div class="event-card" data-reveal>
+      <div class="event-header">
+        <div class="event-icon">🕌</div>
+        <div class="event-type">Prosesi Pertama</div>
+        <div class="event-name">Akad Nikah</div>
+      </div>
+      <div class="event-body">
+        <div class="event-detail">
+          <div class="detail-icon">📅</div>
+          <div class="detail-text">
+            <div class="detail-label">Hari & Tanggal</div>
+            <div class="detail-value">Sabtu, ___ _______ 2025</div>
+            <div class="detail-note">1447 H</div>
+          </div>
+        </div>
+        <div class="event-detail">
+          <div class="detail-icon">🕐</div>
+          <div class="detail-text">
+            <div class="detail-label">Waktu</div>
+            <div class="detail-value">08.00 – 10.00 WITA</div>
+            <div class="detail-note">Ba'da Subuh</div>
+          </div>
+        </div>
+        <div class="event-detail">
+          <div class="detail-icon">📍</div>
+          <div class="detail-text">
+            <div class="detail-label">Lokasi</div>
+            <div class="detail-value">Masjid / Kediaman</div>
+            <div class="detail-note">_______________________</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Walimatul Ursy -->
+    <div class="event-card" data-reveal="delay-1">
+      <div class="event-header">
+        <div class="event-icon">🌿</div>
+        <div class="event-type">Prosesi Kedua</div>
+        <div class="event-name">Walimatul 'Ursy</div>
+      </div>
+      <div class="event-body">
+        <div class="event-detail">
+          <div class="detail-icon">📅</div>
+          <div class="detail-text">
+            <div class="detail-label">Hari & Tanggal</div>
+            <div class="detail-value">Sabtu, ___ _______ 2025</div>
+            <div class="detail-note">1447 H</div>
+          </div>
+        </div>
+        <div class="event-detail">
+          <div class="detail-icon">🕐</div>
+          <div class="detail-text">
+            <div class="detail-label">Waktu</div>
+            <div class="detail-value">10.00 – 14.00 WITA</div>
+            <div class="detail-note">Siang – Selesai</div>
+          </div>
+        </div>
+        <div class="event-detail">
+          <div class="detail-icon">📍</div>
+          <div class="detail-text">
+            <div class="detail-label">Lokasi</div>
+            <div class="detail-value">Kediaman Keluarga</div>
+            <div class="detail-note">_______________________</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Pattern strip -->
+  <div class="pattern-strip"></div>
+
+  <!-- ════ AYAT QURAN ════ -->
+  <section class="quran-section" data-reveal>
+    <div class="quran-rosette">✦ ✦ ✦</div>
+    <div class="quran-arabic">
+      وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا<br>
+      لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
+    </div>
+    <div class="quran-translation">
+      "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+    </div>
+    <div class="quran-source">QS. Ar-Rum : 21</div>
+  </section>
+
+  <!-- ════ COUNTDOWN ════ -->
+  <section class="countdown-section" data-reveal>
+    <div class="countdown-label">— Menghitung Hari Bahagia —</div>
+    <div class="countdown-grid">
+      <div class="count-block">
+        <div class="count-number" id="cd-hari">--</div>
+        <div class="count-unit">Hari</div>
+      </div>
+      <div class="count-block">
+        <div class="count-number" id="cd-jam">--</div>
+        <div class="count-unit">Jam</div>
+      </div>
+      <div class="count-block">
+        <div class="count-number" id="cd-menit">--</div>
+        <div class="count-unit">Menit</div>
+      </div>
+      <div class="count-block">
+        <div class="count-number" id="cd-detik">--</div>
+        <div class="count-unit">Detik</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <div class="arabesque-divider">
+    <div class="ara-line"></div>
+    <div class="ara-center">✦ ❧ ✦</div>
+    <div class="ara-line"></div>
+  </div>
+
+  <!-- ════ LOKASI ════ -->
+  <section class="location-section" data-reveal>
+    <div class="location-card">
+      <div class="map-placeholder">
+        <div class="map-pin">📍</div>
+        <div class="map-text">Peta Lokasi</div>
+      </div>
+      <div class="location-body">
+        <div class="location-name">Kediaman Keluarga / Gedung Resepsi</div>
+        <div class="location-address">
+          Jl. _________________________ No. ___<br>
+          Basirih, Banjarmasin — Kalimantan Selatan
+        </div>
+        <a class="map-btn" href="#" target="_blank">
+          🗺 Buka Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ UCAPAN / RSVP ════ -->
+  <section class="rsvp-section" data-reveal>
+    <div class="rsvp-card">
+      <div class="section-eyebrow">— Konfirmasi Kehadiran —</div>
+      <div class="section-title">Kirim Ucapan & Doa</div>
+      <div class="section-body">
+        Doa dan kehadiran Bapak/Ibu/Saudara/i adalah kebahagiaan terbesar bagi kami. Mohon konfirmasi kehadiran sebelum hari H.
+      </div>
+      <a class="btn-primary" href="https://wa.me/628xxxxxxxxxx?text=Assalamu'alaikum%2C%20saya%20akan%20hadir%20di%20pernikahan%20Saman%20%26%20Firdha" target="_blank">
+        💬 Konfirmasi via WhatsApp
+      </a>
+    </div>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer class="footer">
+    <div class="footer-arabic">جَزَاكُمُ اللَّهُ خَيْرًا</div>
+    <div class="footer-couple">M. Saman Subhani &amp; Firdha Ariyanti</div>
+    <div style="color:var(--sage-light);font-size:14px;font-style:italic;margin-bottom:12px;position:relative;">
+      "Semoga pernikahan kami menjadi ibadah yang penuh berkah, dan rumah tangga kami diridhoi Allah SWT."
+    </div>
+    <div class="arabesque-divider" style="margin:16px 0;">
+      <div class="ara-line" style="background:linear-gradient(to right,transparent,rgba(124,185,154,0.3),transparent)"></div>
+      <div class="ara-center" style="color:var(--gold);font-size:18px;">❧ ✦ ❧</div>
+      <div class="ara-line" style="background:linear-gradient(to right,transparent,rgba(124,185,154,0.3),transparent)"></div>
+    </div>
+    <div class="footer-note">Pondok Pesantren Ya Nabi — Basirih, Banjarmasin</div>
+  </footer>
+
+</div><!-- /invitation -->
+
+<script>
+// ── Countdown ────────────────────────────────────────────────
+// Ganti tanggal ini sesuai tanggal akad yang sebenarnya
+const targetDate = new Date('2025-09-20T08:00:00');
+
+function updateCountdown() {
+  const now  = new Date();
+  const diff = targetDate - now;
+  if (diff <= 0) {
+    document.getElementById('cd-hari').textContent   = '0';
+    document.getElementById('cd-jam').textContent    = '0';
+    document.getElementById('cd-menit').textContent  = '0';
+    document.getElementById('cd-detik').textContent  = '0';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000)  / 60000);
+  const s = Math.floor((diff % 60000)    / 1000);
+  document.getElementById('cd-hari').textContent   = String(d).padStart(2,'0');
+  document.getElementById('cd-jam').textContent    = String(h).padStart(2,'0');
+  document.getElementById('cd-menit').textContent  = String(m).padStart(2,'0');
+  document.getElementById('cd-detik').textContent  = String(s).padStart(2,'0');
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ── Scroll Reveal ────────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
